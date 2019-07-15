@@ -1,38 +1,28 @@
 import React,{Component} from 'react';
-import { withFirebase } from '../Firebase';
+
 class Admin extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: false,
-      categories: [],
+      categories: []
     };
   }
-  componentDidMount() {
-    this.setState({ loading: true });
+  // componentDidMount() {
 
-    this.props.firebase.categories().on('value', snapshot => {
-      const categoriesObject = snapshot.val();
-
-      const usersCategories = Object.keys(categoriesObject).map(key => ({
-        ...categoriesObject[key],
-        uid: key,
-      }));
-
-      this.setState({
-        users: usersCategories,
-        loading: false,
-      });
-    });
-  }
+  //   this.props.firebase.getCategories().on('value', snapshot => {
+  //     const categoriesObject = snapshot.val();
+  //     console.log(categoriesObject)
+  //     this.setState({
+  //       users: categoriesObject
+  //     });
+  //   });
+  // }
   render() { 
     return ( 
       <div>
-    <h1>Admin</h1>
+    <h1>Adminfgsdgsdga</h1>
   </div>
      );
   }
 }
- 
-
-export default withFirebase(Admin);
+export default (Admin);

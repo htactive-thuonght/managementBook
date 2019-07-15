@@ -17,6 +17,7 @@ class firebase {
     app.initializeApp(firebaseConfig);
 
     this.auth = app.auth();
+    this.db = app.database();
   }
 
   doCreateUserWithEmailAndPassword = (email, password) =>
@@ -31,6 +32,11 @@ class firebase {
 
   doPasswordUpdate = password =>
     this.auth.currentUser.updatePassword(password);
+    getCategories = () => this.db.ref('Categories');
+    addCategories = () => this.db.ref('Categories');
+    editCategories = (index) => this.db.ref(`Categories/${index}`);
+    // deleteCategories = (index) => this.db.ref(`Categories/${index}`);
+
 }
 
 
